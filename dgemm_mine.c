@@ -1,4 +1,4 @@
-const char* dgemm_desc = "Blocksize-16 outer-ijk inner-jki";
+const char* dgemm_desc = "Blocksize-16 outer-jki inner-jki";
 
 #ifndef BLOCK_SIZE
 #define BLOCK_SIZE ((int) 16)
@@ -40,12 +40,12 @@ void square_dgemm(const int M, const double *A, const double *B, double *C)
 {
     const int n_blocks = M / BLOCK_SIZE + (M%BLOCK_SIZE? 1 : 0);
     int bi, bj, bk;
-    for (bi = 0; bi < n_blocks; ++bi) {
-        const int i = bi * BLOCK_SIZE;
-        for (bj = 0; bj < n_blocks; ++bj) {
-            const int j = bj * BLOCK_SIZE;
-            for (bk = 0; bk < n_blocks; ++bk) {
-                const int k = bk * BLOCK_SIZE;
+    for (bj = 0; bj < n_blocks; ++bj) {
+        const int j = bj * BLOCK_SIZE;
+        for (bk = 0; bk < n_blocks; ++bk) {
+            const int k = bk * BLOCK_SIZE;
+            for (bi = 0; bi < n_blocks; ++bi) {
+                const int i = bi * BLOCK_SIZE;
                 do_block(M, A, B, C, i, j, k);
             }
         }
