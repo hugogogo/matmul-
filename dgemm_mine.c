@@ -1,7 +1,7 @@
-const char* dgemm_desc = "Blocksize-16 outer-jki inner-jki";
+const char* dgemm_desc = "Blocksize-64 outer-jki inner-jki";
 
 #ifndef BLOCK_SIZE
-#define BLOCK_SIZE ((int) 16)
+#define BLOCK_SIZE ((int) 64)
 #endif
 
 /*
