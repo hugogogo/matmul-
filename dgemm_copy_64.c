@@ -1,9 +1,9 @@
 #include <stdlib.h>
 
-const char* dgemm_desc = "Copy optimized block dgemm size 16.";
+const char* dgemm_desc = "Copy optimized block dgemm size 64.";
 
 #ifndef BLOCK_SIZE
-#define BLOCK_SIZE ((int) 16)
+#define BLOCK_SIZE ((int) 64)
 #endif
 
 void basic_dgemm(const int M, const double *A, const double *B, double *C)
@@ -88,6 +88,15 @@ void square_dgemm(const int M, const double *A, const double *B, double *C)
         }
     }
     
+    /*
+    for (bj = 0; bj < n_size; bj++) {
+        for (bi = 0; bi < n_size; bi++) {
+            printf("%.1f ", CC[bi + bj * n_size]);
+        }
+        printf("\n");
+    }
+    */
+
     // Copy results back
     for (bi = 0; bi < n_blocks; ++bi) {
         for (bj = 0; bj < n_blocks; ++bj) {
