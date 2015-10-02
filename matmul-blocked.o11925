@@ -1,4 +1,0 @@
-Compiler:	icc
-Options:	-O3 -fast -ftree-vectorize -opt-prefetch -unroll-aggressive -ansi-alias -restrict -openmp -xCORE-AVX2 -qopt-report-phase=vec -qopt-report=5 -qopt-report-file=stdout
-Description:	Simple blocked dgemm.
-
