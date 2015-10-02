@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-const char* dgemm_desc = "Copy optimized block dgemm size 32 and aligned size 64.";
+const char* dgemm_desc = "Copy optimized block dgemm size 16";
 
 /* The best so far 
  Block_Size 32
