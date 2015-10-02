@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-const char* dgemm_desc = "Copy optimized block dgemm size 16.";
+const char* dgemm_desc = "Copy optimized block dgemm size 16";
 
 #ifndef BLOCK_SIZE
 #define BLOCK_SIZE ((int) 16)
